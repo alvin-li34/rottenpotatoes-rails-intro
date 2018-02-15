@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = params[:rating]
+    @movies = Movie.all
   end
 
   def new
