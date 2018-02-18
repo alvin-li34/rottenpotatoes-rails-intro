@@ -20,7 +20,6 @@ class MoviesController < ApplicationController
     else
       @movies = Movie.all
     end
-    
     if params[:ratings]
       @checked_ratings = params[:ratings].keys
     else
