@@ -18,12 +18,13 @@ class MoviesController < ApplicationController
     elsif params[:release_date] == "sort"
       @movies = Movie.all.order(:release_date)
     else
-      @checked_ratings = 
-      if params[:ratings]
-        @movies = Movie.where(:rating => params[:ratings].keys)
-      else
-        @movies = Movie.all
-      end
+      @movies = Movie.all
+    end
+    if params[:ratings]
+        @checked_ratings = params[:ratings].keys
+        @movies = Movie.where(:rating => @checked_ratings)
+    else
+      @checked_ratings = Movie.all
     end
   end
 
