@@ -29,7 +29,6 @@ class MoviesController < ApplicationController
       @checked_ratings = @all_ratings
     end
     @movies = @movies.where(:rating => @checked_ratings)
-    
   end
 
   def new
