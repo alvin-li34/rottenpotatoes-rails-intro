@@ -13,9 +13,9 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
     
-    if params[:title] == "sort"
-      session[:title] = params[:title]
-      @movies = Movie.all.order(:title)
+    if params[:sort]
+      session[:sort] = params[:sort]
+      @movies = Movie.all.order(params[:sort])
     elsif params[:release_date] == "sort"
       session[:release_date] = params[:release_date]
       @movies = Movie.all.order(:release_date)
