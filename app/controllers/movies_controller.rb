@@ -20,8 +20,7 @@ class MoviesController < ApplicationController
     else
       @checked_ratings = 
       if params[:ratings]
-        @checked_ratings = params[:ratings].keys
-        @movies = Movie.where(:rating => @checked_ratings)
+        @movies = Movie.where(:rating => params[:ratings].keys)
       else
         @movies = Movie.all
       end
