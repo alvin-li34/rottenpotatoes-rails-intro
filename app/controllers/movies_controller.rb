@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
       session[:ratings] = params[:ratings]
       @checked_ratings = params[:ratings].keys
     elsif session[:ratings]
-      @checked_ratings = session[:ratings].key
+      @checked_ratings = session[:ratings].keys
     else
       @checked_ratings = @all_ratings
     end
