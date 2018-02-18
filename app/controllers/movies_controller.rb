@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
       @movies = Movie.all.order(:release_date)
     else
       if params[:ratings]
-        @movies = Movie.where(:rating => @checked_ratings)
+        @movies = Movie.where(:rating, @checked_ratings)
       else
         @movies = Movie.all
       end
