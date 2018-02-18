@@ -14,13 +14,16 @@ class MoviesController < ApplicationController
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
     
     if params[:title] == "sort"
+      session[:title] = params[:title]
       @movies = Movie.all.order(:title)
     elsif params[:release_date] == "sort"
+      session[:release_date] = params[:release_date]
       @movies = Movie.all.order(:release_date)
     else
       @movies = Movie.all
     end
     if params[:ratings]
+      session[:ratings] = params[:ratings]
       @checked_ratings = params[:ratings].keys
     else
       @checked_ratings = @all_ratings
