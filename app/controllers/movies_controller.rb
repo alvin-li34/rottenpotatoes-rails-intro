@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
     @sort = params[:sort] || session[:sort]
-    if params[:sort]
+    if params[:sort] || session[:sort]
       session[:sort] = params[:sort]
       @movies = Movie.all.order(@sort)
     else
@@ -21,7 +21,6 @@ class MoviesController < ApplicationController
     end
     if params[:ratings]
       session[:ratings] = params[:ratings]
-      
       @checked_ratings = params[:ratings].keys
     elsif session[:ratings]
       @checked_ratings = session[:ratings].keys
